@@ -1,0 +1,248 @@
+:root {
+  --main-background: hsl(222, 26%, 31%);
+  --keypad-background: hsl(223, 31%, 20%);
+  --screen-background: hsl(224, 36%, 15%);
+  --key-background--1: hsl(225, 21%, 49%);
+  --key-background--1-active: hsl(225, 51%, 76%);
+  --key-shadow--1: hsl(224, 28%, 35%);
+  --key-background--2: hsl(6, 63%, 50%);
+  --key-background--2-active: hsl(6, 93%, 67%);
+  --key-shadow--2: hsl(6, 70%, 34%);
+  --key-background--3: hsl(30, 25%, 89%);
+  --key-background--3-active: #FFFFFE;
+  --key-shadow--3: hsl(28, 16%, 65%);
+  --text-color--1: hsl(221, 14%, 31%);
+  --text-color--2: hsl(0, 0%, 100%);
+  --ff-primary: "Spartan", sans-serif;
+  --font-bold: 700;
+  --ls-small: -0.53px;
+  --ls-tiny: -0.8px;
+  --roundness: 1rem;
+}
+
+[data-theme="2"] {
+  --main-background: hsl(0, 0%, 90%);
+  --keypad-background: hsl(0, 5%, 81%);
+  --screen-background: hsl(0, 0%, 93%);
+  --key-background--1: hsl(185, 42%, 37%);
+  --key-background--1-active: hsl(185, 40%, 56%);
+  --key-shadow--1: hsl(185, 58%, 25%);
+  --key-background--2: hsl(25, 98%, 40%);
+  --key-background--2-active: hsl(25, 100%, 61%);
+  --key-shadow--2: hsl(25, 99%, 27%);
+  --key-background--3: hsl(45, 7%, 89%);
+  --key-background--3-active: #ffffff;
+  --key-shadow--3: hsl(35, 11%, 61%);
+  --text-color--1: hsl(60, 10%, 19%);
+  --text-color--2: hsl(0, 0%, 100%);
+}
+
+[data-theme="3"] {
+  --main-background: hsl(268, 75%, 9%);
+  --keypad-background: hsl(268, 71%, 12%);
+  --screen-background: hsl(268, 71%, 12%);
+  --key-background--1: hsl(281, 89%, 26%);
+  --key-background--1-active: hsl(268, 54%, 44%);
+  --key-shadow--1: hsl(285, 91%, 52%);
+  --key-background--2: hsl(176, 100%, 44%);
+  --key-background--2-active: hsl(176, 100%, 79%);
+  --key-shadow--2: hsl(177, 92%, 70%);
+  --key-background--3: hsl(268, 47%, 21%);
+  --key-background--3-active: hsl(280, 56%, 44%);
+  --key-shadow--3: hsl(290, 70%, 36%);
+  --text-color--1: hsl(52, 100%, 62%);
+  --text-color--2: hsl(0, 0%, 100%);
+  --text-color--3: hsl(198, 20%, 13%);
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 3.2rem;
+  font-family: var(--ff-primary);
+  font-weight: var(--font-bold);
+  background-color: var(--main-background);
+  transition-property: background-color, color;
+  transition-duration: 300ms;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2.8rem 2.4rem;
+}
+@media (min-width: 768px) {
+  body {
+    padding-block: 9.6rem;
+  }
+}
+
+.flex {
+  display: flex;
+}
+
+.align-items-end {
+  align-items: flex-end;
+}
+
+.roundness {
+  border-radius: var(--roundness);
+}
+
+button {
+  border: none;
+  outline: none;
+}
+
+.calculator {
+  max-width: 54rem;
+  width: 100%;
+}
+.calculator__header {
+  justify-content: space-between;
+  color: var(--text-color--1);
+}
+.calculator__header > span {
+  letter-spacing: var(--ls-small);
+}
+.calculator__display {
+  flex-direction: column;
+  gap: 1.8rem;
+  background-color: var(--screen-background);
+  margin-top: 3.2rem;
+  text-align: right;
+  padding: 2.4rem 2.4rem 1rem;
+  letter-spacing: var(--ls-small);
+  color: var(--text-color--1);
+}
+.calculator__display--first-line {
+  font-size: 1.6rem;
+  font-weight: 400;
+  min-height: 19.2px;
+}
+.calculator__display--second-line {
+  font-size: 4.8rem;
+  letter-spacing: var(--ls-tiny);
+  min-height: 57.6px;
+}
+.calculator__keypad {
+  margin-top: 2.4rem;
+  background-color: var(--keypad-background);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 1fr;
+  grid-gap: 1.3rem;
+  padding: 2.4rem;
+}
+@media (min-width: 768px) {
+  .calculator__keypad {
+    padding: 3.2rem 2.4rem;
+    grid-column-gap: 2.5rem;
+    grid-row-gap: 2.4rem;
+  }
+}
+.calculator__keypad .others-key {
+  font-size: 1.6rem;
+  letter-spacing: -0.27px;
+}
+@media (min-width: 768px) {
+  .calculator__keypad .others-key {
+    font-size: 2rem;
+    letter-spacing: -0.33px;
+  }
+}
+.calculator__key {
+  font-size: 3.2rem;
+  font-family: var(--ff-primary);
+  font-weight: var(--font-bold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--roundness);
+  color: var(--text-color--1);
+  background-color: var(--key-background--3);
+  padding-top: 1rem;
+  padding-bottom: 1.4rem;
+  box-shadow: inset 0px -4px 0px var(--key-shadow--3);
+  cursor: pointer;
+  transition: color 275ms ease;
+}
+.calculator__key:hover, .calculator__key:active {
+  background-color: var(--key-background--3-active);
+}
+.calculator__key:active {
+  box-shadow: none;
+  transform: translateY(2px);
+}
+.calculator__key--del, .calculator__key--reset {
+  text-transform: uppercase;
+  color: var(--text-color--2);
+  background-color: var(--key-background--1);
+  box-shadow: inset 0px -4px 0px var(--key-shadow--1);
+}
+.calculator__key--del:hover, .calculator__key--reset:hover {
+  background-color: var(--key-background--1-active);
+}
+.calculator__key--reset {
+  grid-row: 5/6;
+  grid-column: 1/3;
+}
+.calculator__key--equal {
+  grid-row: 5/6;
+  grid-column: 3/-1;
+  background-color: var(--key-background--2);
+  color: var(--text-color--2);
+  box-shadow: inset 0px -4px 0px var(--key-shadow--2);
+}
+.calculator__key--equal:hover {
+  background-color: var(--key-background--2-active);
+}
+
+.theme-toggle-box {
+  gap: 2.1rem;
+}
+.theme-toggle-box > span {
+  letter-spacing: 0.1rem;
+  margin-bottom: 0.5rem;
+}
+.theme-toggle-box span {
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  font-weight: var(--font-bold);
+}
+
+.theme-index-box {
+  justify-content: space-between;
+  padding-inline: 0.95rem;
+  margin-bottom: 0.5rem;
+}
+
+.switch {
+  --slider-size: 1.6rem;
+  width: calc(var(--slider-size)*4.375);
+  background-color: var(--keypad-background);
+  border-radius: var(--slider-size);
+  padding: calc(var(--slider-size) * 0.3125);
+  cursor: pointer;
+}
+.switch__slider {
+  width: var(--slider-size);
+  height: var(--slider-size);
+  background-color: var(--key-background--2);
+  transition: transform 0.3s ease;
+  border-radius: 50%;
+}
+.switch__slider:hover {
+  background-color: var(--key-background--2-active);
+}
+/*# sourceMappingURL=index.fa02a0b5.css.map */

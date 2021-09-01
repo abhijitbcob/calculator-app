@@ -1,0 +1,32 @@
+@use './mixins'as *;
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+    font-size: 62.5%;
+    box-sizing: border-box;
+}
+
+body {
+    font-size: 3.2rem;
+    font-family: var(--ff-primary);
+    font-weight: var(--font-bold);
+    background-color: var(--main-background);
+    transition-property: background-color, color;
+    transition-duration: 300ms;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2.8rem 2.4rem;
+
+    @include respond-to(medium) {
+        padding-block: 9.6rem;
+    }
+}
